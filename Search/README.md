@@ -113,6 +113,19 @@ You should see the mediumDottedMaze:
 
 <img src='./images/search_3.png'>
 
+which results in higher scores because we encourage pacman to eat more dots as part of our cost function.
+```
+Path found with total cost of 1 in 0.0 seconds
+Search nodes expanded: 186
+Pacman emerges victorious! Score: 646
+Average Score: 646.0
+Scores:        646.0
+Win Rate:      1/1 (1.00)
+Record:        Win
+```
+
+<br>
+
 And the mediumScaryMaze:
 
 <img src='./images/search_3_1.png'>
