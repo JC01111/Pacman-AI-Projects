@@ -47,7 +47,7 @@ First, test that the `SearchAgent` is working correctly by running:
 python pacman.py -l tinyMaze -p SearchAgent -a fn=tinyMazeSearch
 ```
 
-Then, I implemented the graph search version of DFS in `depthFirstSearch` function in `search.py`.
+Then, I implemented the __DFS on graph__ in `depthFirstSearch` function in `search.py`.
 Now test the result by:
 ```python
 python pacman.py -l tinyMaze -p SearchAgent
@@ -71,7 +71,7 @@ Record:        Win
 ```
 
 ## 2. Breadth First Search
-I implemented the BFS algorithm in the `breadthFirstSearch` function in `search.py`. 
+I implemented the __BFS on graph__ in the `breadthFirstSearch` function in `search.py`. 
 
 We can test on the same way by running:
 ```python
@@ -96,11 +96,13 @@ Record:        Win
 ```
 
 ## 3. Varying the Cost Function
+UCS: an uninformed search that performs a search based on the loweset path cost.
+
 While BFS will find a fewest-actions path to the goal, we might want to find paths that are “best” in other senses. Consider `mediumDottedMaze` and `mediumScaryMaze`.
 
 By changing the cost function, we can encourage Pacman to find different paths. For example, we can charge more for dangerous steps in ghost-ridden areas or less for steps in food-rich areas, and a rational Pacman agent should adjust its behavior in response.
 
-I implemented the uniform-cost graph search algorithm in the `uniformCostSearch` function in `search.py`. The result of `UCS` is the same as `BFS`, which you can refer above.
+I implemented the __uniform-cost graph search algorithm__ in the `uniformCostSearch` function in `search.py`. The result of `UCS` is the same as `BFS`, which you can refer above.
 
 We can run the tests by:
 ```python
@@ -139,3 +141,32 @@ Scores:        418.0
 Win Rate:      1/1 (1.00)
 Record:        Win
 ```
+
+## 4. A* search
+A*: an informed search f(n) = g(n) + h(n). g(n) is the cost of the path from the start node to n, and h(n) is a heuristic function that estimates the cost of the cheapest path from n to the goal.
+
+I implemented __A* graph search__ in the empty function `aStarSearch` in `search.py`. A* takes a heuristic function as an argument. Heuristics take two arguments: a state in the search problem (the main argument), and the problem itself (for reference information). The `nullHeuristic` heuristic function in `search.py` is a trivial example.
+
+You can test your A* implementation on the original problem of finding a path through a maze to a fixed position using the Manhattan distance heuristic (implemented already as `manhattanHeuristic` in `searchAgents.py`).
+
+```python
+python pacman.py -l bigMaze -z .5 -p SearchAgent -a fn=astar,heuristic=manhattanHeuristic
+```
+
+<img src='./images/search_4.png'>
+
+A* finds the optimal solution slightly faster than uniform cost search (about 549 vs. 620 search nodes expanded in our implementation, but ties in priority may make your numbers differ slightly).
+
+```
+[SearchAgent] using function astar and heuristic manhattanHeuristic
+[SearchAgent] using problem type PositionSearchProblem
+Path found with total cost of 68 in 0.0 seconds
+Search nodes expanded: 221
+Pacman emerges victorious! Score: 442
+Average Score: 442.0
+Scores:        442.0
+Win Rate:      1/1 (1.00)
+Record:        Win
+```
+
+## 5. Finding All the Corners
