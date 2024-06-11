@@ -56,7 +56,7 @@ python pacman.py -l bigMaze -z .5 -p SearchAgent
 ```
 You should see the mediumMaze for **DFS** like this:
 
-<img src='./images/search_1.png'>
+<img src='./images/search_1.png' width=900>
 
 ```
 [SearchAgent] using function depthFirstSearch
@@ -81,7 +81,7 @@ python pacman.py -l bigMaze -p SearchAgent -a fn=bfs -z .5
 
 You should see the mediumMaze for **BFS** like this:
 
-<img src='./images/search_2.png'>
+<img src='./images/search_2.png' width=900>
 
 ```
 [SearchAgent] using function bfs
