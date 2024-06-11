@@ -2,6 +2,8 @@
 
 In this project, the Pacman agent will find paths through his maze world, both to reach a particular location and to collect food efficiently. The general search algorithms (BFS, DFS, UCS, A*, Heuristic) will be applied to Pacman scenarios.
 
+In `search.py` file, I implemented the __BFS, DFS, USC, A*, and Heuristic__ for pacman to have different routes and behaviors to collect dots and the costs.
+
 <br>
 
 Files of main algorithms:
