@@ -8,14 +8,14 @@ Files of main algorithms:
 
 | File               | Description                                                    |
 |--------------------|----------------------------------------------------------------|
-| `search.py`        | Where all of search algorithms will reside.               |
-| `searchAgents.py`  | Where all of search-based agents will reside.             |
+| `search.py`        | Where all of the search algorithms reside.               |
+| `searchAgents.py`  | Where all of the search-based agents reside.             |
 
 Files you might want to look at:
 
 | File               | Description                                                                                        |
 |--------------------|----------------------------------------------------------------------------------------------------|
-| `pacman.py`        | The main file that runs Pacman games. This file describes a Pacman GameState type, which you use in this project. |
+| `pacman.py`        | The main file that runs Pacman games. This file describes a Pacman GameState type.|
 | `game.py`          | The logic behind how the Pacman world works. This file describes several supporting types like AgentState, Agent, Direction, and Grid. |
 | `util.py`          | Useful data structures for implementing search algorithms.                                          |
 
