@@ -52,7 +52,7 @@ python pacman.py -l tinyMaze -p SearchAgent
 python pacman.py -l mediumMaze -p SearchAgent
 python pacman.py -l bigMaze -z .5 -p SearchAgent
 ```
-You should see the mediumMaze like this:
+You should see the mediumMaze for **DFS** like this:
 
 <img src='./images/search_1.png'>
 
@@ -68,8 +68,6 @@ Win Rate:      1/1 (1.00)
 Record:        Win
 ```
 
-<br>
-
 ## 2. Breadth First Search
 I implemented the BFS algorithm in the `breadthFirstSearch` function in `search.py`. 
 
@@ -79,7 +77,50 @@ python pacman.py -l mediumMaze -p SearchAgent -a fn=bfs
 python pacman.py -l bigMaze -p SearchAgent -a fn=bfs -z .5
 ```
 
-You should see the mediumMaze like this:
+You should see the mediumMaze for **BFS** like this:
 
 <img src='./images/search_2.png'>
 
+```
+[SearchAgent] using function bfs
+[SearchAgent] using problem type PositionSearchProblem
+Path found with total cost of 68 in 0.0 seconds
+Search nodes expanded: 269
+Pacman emerges victorious! Score: 442
+Average Score: 442.0
+Scores:        442.0
+Win Rate:      1/1 (1.00)
+Record:        Win
+```
+
+## 3. Varying the Cost Function
+While BFS will find a fewest-actions path to the goal, we might want to find paths that are “best” in other senses. Consider `mediumDottedMaze` and `mediumScaryMaze`.
+
+By changing the cost function, we can encourage Pacman to find different paths. For example, we can charge more for dangerous steps in ghost-ridden areas or less for steps in food-rich areas, and a rational Pacman agent should adjust its behavior in response.
+
+I implemented the uniform-cost graph search algorithm in the `uniformCostSearch` function in `search.py`. The result of `UCS` is the same as `BFS`, which you can refer above.
+
+We can run the tests by:
+```python
+python pacman.py -l mediumMaze -p SearchAgent -a fn=ucs
+python pacman.py -l mediumDottedMaze -p StayEastSearchAgent
+python pacman.py -l mediumScaryMaze -p StayWestSearchAgent
+```
+
+You should see the mediumDottedMaze:
+
+<img src='./images/search_3.png'>
+
+And the mediumScaryMaze:
+
+<img src='./images/search_3_1.png'>
+
+```
+Path found with total cost of 68719479864 in 0.0 seconds
+Search nodes expanded: 108
+Pacman emerges victorious! Score: 418
+Average Score: 418.0
+Scores:        418.0
+Win Rate:      1/1 (1.00)
+Record:        Win
+```
