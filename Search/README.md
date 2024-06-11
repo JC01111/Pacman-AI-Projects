@@ -153,7 +153,7 @@ You can test your A* implementation on the original problem of finding a path th
 python pacman.py -l bigMaze -z .5 -p SearchAgent -a fn=astar,heuristic=manhattanHeuristic
 ```
 
-<img src='./images/search_4.png'>
+<img src='./images/search_4.png' width=600>
 
 A* finds the optimal solution slightly faster than uniform cost search (about 549 vs. 620 search nodes expanded in our implementation, but ties in priority may make your numbers differ slightly).
 
