@@ -45,4 +45,41 @@ First, test that the `SearchAgent` is working correctly by running:
 python pacman.py -l tinyMaze -p SearchAgent -a fn=tinyMazeSearch
 ```
 
-Graph
+Then, I implemented the graph search version of DFS in `depthFirstSearch` function in `search.py`.
+Now test the result by:
+```python
+python pacman.py -l tinyMaze -p SearchAgent
+python pacman.py -l mediumMaze -p SearchAgent
+python pacman.py -l bigMaze -z .5 -p SearchAgent
+```
+You should see the mediumMaze like this:
+
+<img src='./images/search_1.png'>
+
+```
+[SearchAgent] using function depthFirstSearch
+[SearchAgent] using problem type PositionSearchProblem
+Path found with total cost of 130 in 0.0 seconds
+Search nodes expanded: 146
+Pacman emerges victorious! Score: 380
+Average Score: 380.0
+Scores:        380.0
+Win Rate:      1/1 (1.00)
+Record:        Win
+```
+
+<br>
+
+## 2. Breadth First Search
+I implemented the BFS algorithm in the `breadthFirstSearch` function in `search.py`. 
+
+We can test on the same way by running:
+```python
+python pacman.py -l mediumMaze -p SearchAgent -a fn=bfs
+python pacman.py -l bigMaze -p SearchAgent -a fn=bfs -z .5
+```
+
+You should see the mediumMaze like this:
+
+<img src='./images/search_2.png'>
+
