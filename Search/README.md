@@ -170,4 +170,46 @@ Record:        Win
 ```
 
 ## 5. Finding All the Corners
+The real power of A* will only be apparent with a more challenging search problem. Now, it’s time to formulate a new problem and design a heuristic for it.
 
+In corner mazes, there are four dots, one in each corner. Our new search problem is to find the shortest path through the maze that touches all four corners (whether the maze actually has food there or not). Note that for some mazes like tinyCorners, the shortest path does not always go to the closest food first! Hint: the shortest path through tinyCorners takes 28 steps.
+
+I implemented the `CornersProblem` search problem in `searchAgents.py`. We can test on:
+```python
+python pacman.py -l tinyCorners -p SearchAgent -a fn=bfs,prob=CornersProblem
+python pacman.py -l mediumCorners -p SearchAgent -a fn=bfs,prob=CornersProblem
+```
+The blue line is the first dot that pacman eats, red line is the second dot, orange line is the third dot.
+<img src='./images/search_5.png'>
+
+```
+[SearchAgent] using function bfs
+[SearchAgent] using problem type CornersProblem
+Path found with total cost of 106 in 0.0 seconds
+Search nodes expanded: 1966
+Pacman emerges victorious! Score: 434
+Average Score: 434.0
+Scores:        434.0
+Win Rate:      1/1 (1.00)
+Record:        Win
+```
+
+## 5.2 Corners Problem: Heuristic
+
+To get a better result, I implement a non-trivial, consistent heuristic for the `CornersProblem` in `cornersHeuristic`.
+
+```python
+python pacman.py -l mediumCorners -p AStarCornersAgent
+```
+
+<img src='./images/search_5_2.png'>
+
+```
+Path found with total cost of 106 in 0.0 seconds
+Search nodes expanded: 1136
+Pacman emerges victorious! Score: 434
+Average Score: 434.0
+Scores:        434.0
+Win Rate:      1/1 (1.00)
+Record:        Win
+```
