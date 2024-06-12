@@ -179,7 +179,7 @@ I implemented the `CornersProblem` search problem in `searchAgents.py`. We can t
 python pacman.py -l tinyCorners -p SearchAgent -a fn=bfs,prob=CornersProblem
 python pacman.py -l mediumCorners -p SearchAgent -a fn=bfs,prob=CornersProblem
 ```
-The blue line is the first dot that pacman eats, red line is the second dot, orange line is the third dot.
+The blue line is the first route that pacman goes, red line is the second route, orange line is the third route.
 <img src='./images/search_5.png'>
 
 ```
@@ -195,15 +195,23 @@ Record:        Win
 ```
 
 ## 5.2 Corners Problem: Heuristic
+__Admissibility vs. Consistency:__ Heuristics are just functions that take search states and return numbers that estimate the cost to a nearest goal. More effective heuristics will return values closer to the actual goal costs. To be _admissible_, the heuristic values must be lower bounds on the actual shortest path cost to the nearest goal (and non-negative). To be _consistent_, it must additionally hold that if an action has cost c, then taking that action can only cause a drop in heuristic of at most c.
+
+Admissibility isn’t enough to guarantee correctness in graph search – you need the stronger condition of consistency. However, admissible heuristics are usually also consistent, especially if they are derived from problem relaxations. Therefore it is usually easiest to start out by brainstorming admissible heuristics. Once you have an admissible heuristic that works well, you can check whether it is indeed consistent, too. The only way to guarantee consistency is with a proof. However, inconsistency can often be detected by verifying that for each node you expand, its successor nodes are equal or higher in in f-value. Moreover, if UCS and A* ever return paths of different lengths, your heuristic is inconsistent. This stuff is tricky!
+
+__Non-Trivial Heuristics:__ The trivial heuristics are the ones that return zero everywhere (UCS) and the heuristic which computes the true completion cost. The former won’t save you any time, while the latter will take longer. You want a heuristic which reduces total compute time, though we can also check node counts (aside from enforcing a reasonable time limit).
+
+<br>
 
 To get a better result, I implement a non-trivial, consistent heuristic for the `CornersProblem` in `cornersHeuristic`.
 
 ```python
 python pacman.py -l mediumCorners -p AStarCornersAgent
 ```
-
+The blue line is the first route that pacman goes, red line is the second route, orange line is the third route.
 <img src='./images/search_5_2.png'>
 
+This method expanded less than 1200 nodes, which is very good.
 ```
 Path found with total cost of 106 in 0.0 seconds
 Search nodes expanded: 1136
@@ -213,3 +221,42 @@ Scores:        434.0
 Win Rate:      1/1 (1.00)
 Record:        Win
 ```
+
+## 6. Eating All The Dots
+Now we’ll solve a hard search problem: eating all the Pacman food in as few steps as possible. For this, we’ll need a new search problem definition which formalizes the food-clearing problem: `FoodSearchProblem` in `searchAgents.py` (implemented). A solution is defined to be a path that collects all of the food in the Pacman world. For the present project, solutions do not take into account any ghosts or power pellets; solutions only depend on the placement of walls, regular food and Pacman. (Of course ghosts can ruin the execution of a solution!) If you have written your general search methods correctly, A* with a null heuristic (equivalent to uniform-cost search) should quickly find an optimal solution to testSearch with no code change on your part (total cost of 7).
+
+```python
+python pacman.py -l testSearch -p AStarFoodSearchAgent
+```
+
+```
+Path found with total cost of 7 in 0.0 seconds
+Search nodes expanded: 10
+Pacman emerges victorious! Score: 513
+Average Score: 513.0
+Scores:        513.0
+Win Rate:      1/1 (1.00)
+Record:        Win
+```
+
+<br>
+
+I filled in `foodHeuristic` in `searchAgents.py` with a _consistent_ heuristic for the `FoodSearchProblem`.
+```python
+python pacman.py -l trickySearch -p AStarFoodSearchAgent
+```
+
+<img src="./images/.png">
+
+```
+Path found with total cost of 60 in 6.2 seconds
+Search nodes expanded: 4137
+Pacman emerges victorious! Score: 570
+Average Score: 570.0
+Scores:        570.0
+Win Rate:      1/1 (1.00)
+Record:        Win
+```
+
+
+## 7. Suboptimal Search
