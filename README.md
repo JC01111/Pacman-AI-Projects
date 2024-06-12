@@ -1,5 +1,5 @@
 # Pacman-AI-Projects
-<img src="Search/images/pacman_game.gif">
+<img src="./images/pacman_game.gif">
 
 ## Overview
 These are the main topics of the Pacman AI Projects. 
