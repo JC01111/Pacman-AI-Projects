@@ -47,7 +47,7 @@ First, test that the `SearchAgent` is working correctly by running:
 python pacman.py -l tinyMaze -p SearchAgent -a fn=tinyMazeSearch
 ```
 
-Then, I implemented the __DFS on graph__ in `depthFirstSearch` function in `search.py`.
+Then, I [implemented](https://github.com/JC01111/Pacman-AI-Projects/blob/e8db8244dff0502f7ef5b24ba8d64a0bf9bda6c5/Search/search.py#L75) the __DFS on graph__ in `depthFirstSearch` function in `search.py`.
 Now test the result by:
 ```python
 python pacman.py -l tinyMaze -p SearchAgent
@@ -71,7 +71,7 @@ Record:        Win
 ```
 
 ## 2. Breadth First Search
-I implemented the __BFS on graph__ in the `breadthFirstSearch` function in `search.py`. 
+I [implemented](https://github.com/JC01111/Pacman-AI-Projects/blob/e8db8244dff0502f7ef5b24ba8d64a0bf9bda6c5/Search/search.py#L112) the __BFS on graph__ in the `breadthFirstSearch` function in `search.py`. 
 
 We can test on the same way by running:
 ```python
@@ -102,7 +102,7 @@ While BFS will find a fewest-actions path to the goal, we might want to find pat
 
 By changing the cost function, we can encourage Pacman to find different paths. For example, we can charge more for dangerous steps in ghost-ridden areas or less for steps in food-rich areas, and a rational Pacman agent should adjust its behavior in response.
 
-I implemented the __uniform-cost graph search algorithm__ in the `uniformCostSearch` function in `search.py`. The result of `UCS` is the same as `BFS`, which you can refer above.
+I [implemented](https://github.com/JC01111/Pacman-AI-Projects/blob/e8db8244dff0502f7ef5b24ba8d64a0bf9bda6c5/Search/search.py#L131) the __uniform-cost graph search algorithm__ in the `uniformCostSearch` function in `search.py`. The result of `UCS` is the same as `BFS`, which you can refer above.
 
 We can run the tests by:
 ```python
@@ -145,7 +145,7 @@ Record:        Win
 ## 4. A* search
 A*: an informed search f(n) = g(n) + h(n). g(n) is the cost of the path from the start node to n, and h(n) is a heuristic function that estimates the cost of the cheapest path from n to the goal.
 
-I implemented __A* graph search__ in the empty function `aStarSearch` in `search.py`. A* takes a heuristic function as an argument. Heuristics take two arguments: a state in the search problem (the main argument), and the problem itself (for reference information). The `nullHeuristic` heuristic function in `search.py` is a trivial example.
+I [implemented](https://github.com/JC01111/Pacman-AI-Projects/blob/e8db8244dff0502f7ef5b24ba8d64a0bf9bda6c5/Search/search.py#L158) __A* graph search__ in the empty function `aStarSearch` in `search.py`. A* takes a heuristic function as an argument. Heuristics take two arguments: a state in the search problem (the main argument), and the problem itself (for reference information). The `nullHeuristic` heuristic function in `search.py` is a trivial example.
 
 We can test the A* implementation on the original problem of finding a path through a maze to a fixed position using the Manhattan distance heuristic (implemented already as `manhattanHeuristic` in `searchAgents.py`).
 
@@ -174,7 +174,7 @@ The real power of A* will only be apparent with a more challenging search proble
 
 In corner mazes, there are four dots, one in each corner. Our new search problem is to find the shortest path through the maze that touches all four corners (whether the maze actually has food there or not). Note that for some mazes like tinyCorners, the shortest path does not always go to the closest food first! Hint: the shortest path through tinyCorners takes 28 steps.
 
-I implemented the `CornersProblem` search problem in `searchAgents.py`. We can test on:
+I [implemented](https://github.com/JC01111/Pacman-AI-Projects/blob/e8db8244dff0502f7ef5b24ba8d64a0bf9bda6c5/Search/searchAgents.py#L273) the `CornersProblem` search problem in `searchAgents.py`. We can test on:
 ```python
 python pacman.py -l tinyCorners -p SearchAgent -a fn=bfs,prob=CornersProblem
 python pacman.py -l mediumCorners -p SearchAgent -a fn=bfs,prob=CornersProblem
@@ -203,7 +203,7 @@ __Non-Trivial Heuristics:__ The trivial heuristics are the ones that return zero
 
 <br>
 
-To get a better result, I implement a non-trivial, consistent heuristic for the `CornersProblem` in `cornersHeuristic`.
+To get a better result, I [implemented](https://github.com/JC01111/Pacman-AI-Projects/blob/e8db8244dff0502f7ef5b24ba8d64a0bf9bda6c5/Search/searchAgents.py#L357) a non-trivial, consistent heuristic for the `CornersProblem` in `cornersHeuristic`.
 
 ```python
 python pacman.py -l mediumCorners -p AStarCornersAgent
@@ -241,7 +241,7 @@ Record:        Win
 
 <br>
 
-I filled in `foodHeuristic` in `searchAgents.py` with a _consistent_ heuristic for the `FoodSearchProblem`.
+I [implemented](https://github.com/JC01111/Pacman-AI-Projects/blob/e8db8244dff0502f7ef5b24ba8d64a0bf9bda6c5/Search/searchAgents.py#L450) in `foodHeuristic` in `searchAgents.py` with a _consistent_ heuristic for the `FoodSearchProblem`.
 ```python
 python pacman.py -l trickySearch -p AStarFoodSearchAgent
 ```
