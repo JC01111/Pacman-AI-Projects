@@ -1,8 +1,8 @@
 # Search Algorithms
 
-In this project, the Pacman agent will find paths through his maze world, both to reach a particular location and to collect food efficiently. The general search algorithms (BFS, DFS, UCS, A*, Heuristic) will be applied to Pacman scenarios.
+In this project, the Pacman agent will find paths through his maze world, both to reach a particular location and to collect food efficiently. The general search algorithms (__BFS, DFS, UCS, A*, and Heuristic__) will be applied to pacman scenarios for pacman to have different routes and behaviors to collect dots and the costs.
 
-In `search.py` file, I implemented the __BFS, DFS, USC, A*, and Heuristic__ for pacman to have different routes and behaviors to collect dots and the costs.
+Click on the [implemented]() (example) to look at specific function.
 
 <br>
 
@@ -262,7 +262,11 @@ Record:        Win
 ## 7. Suboptimal Search
 Sometimes, even with A* and a good heuristic, finding the optimal path through all the dots is hard. In these cases, we’d still like to find a reasonably good path, quickly. In this section, I wrote an agent that always greedily eats the closest dot. `ClosestDotSearchAgent` is implemented in searchAgents.py.
 
-I implemented the function `findPathToClosestDot` in `searchAgents.py`. The agent solves this maze (suboptimally!) in under a second with a path cost of 350:
+I [implemented](https://github.com/JC01111/Pacman-AI-Projects/blob/f92c5f60fd07a0727fbb55ce9bc29fd47a8b4e7d/Search/searchAgents.py#L507) the function `findPathToClosestDot` in `searchAgents.py`. The agent solves this maze (suboptimally!) in under a second with a path cost of 350:
+
+```python
+python pacman.py -l bigSearch -p ClosestDotSearchAgent
+```
 
 <img src="./images/search_7.gif" width=800>
 
