@@ -147,7 +147,7 @@ A*: an informed search f(n) = g(n) + h(n). g(n) is the cost of the path from the
 
 I implemented __A* graph search__ in the empty function `aStarSearch` in `search.py`. A* takes a heuristic function as an argument. Heuristics take two arguments: a state in the search problem (the main argument), and the problem itself (for reference information). The `nullHeuristic` heuristic function in `search.py` is a trivial example.
 
-You can test your A* implementation on the original problem of finding a path through a maze to a fixed position using the Manhattan distance heuristic (implemented already as `manhattanHeuristic` in `searchAgents.py`).
+We can test the A* implementation on the original problem of finding a path through a maze to a fixed position using the Manhattan distance heuristic (implemented already as `manhattanHeuristic` in `searchAgents.py`).
 
 ```python
 python pacman.py -l bigMaze -z .5 -p SearchAgent -a fn=astar,heuristic=manhattanHeuristic
@@ -170,3 +170,4 @@ Record:        Win
 ```
 
 ## 5. Finding All the Corners
+
