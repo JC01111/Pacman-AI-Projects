@@ -182,6 +182,10 @@ python pacman.py -l mediumCorners -p SearchAgent -a fn=bfs,prob=CornersProblem
 The blue line is the first route that pacman goes, red line is the second route, orange line is the third route.
 <img src='../images/search_5.png'>
 
+The gif version:
+
+<img src='../images/search5_1.gif' width=800>
+
 ```
 [SearchAgent] using function bfs
 [SearchAgent] using problem type CornersProblem
