@@ -246,7 +246,7 @@ I [implemented](https://github.com/JC01111/Pacman-AI-Projects/blob/e8db8244dff05
 python pacman.py -l trickySearch -p AStarFoodSearchAgent
 ```
 
-<img src="./images/.png">
+<img src="./images/search_6.gif" width=600>
 
 ```
 Path found with total cost of 60 in 6.2 seconds
@@ -260,3 +260,20 @@ Record:        Win
 
 
 ## 7. Suboptimal Search
+Sometimes, even with A* and a good heuristic, finding the optimal path through all the dots is hard. In these cases, we’d still like to find a reasonably good path, quickly. In this section, I wrote an agent that always greedily eats the closest dot. `ClosestDotSearchAgent` is implemented in searchAgents.py.
+
+I implemented the function `findPathToClosestDot` in `searchAgents.py`. The agent solves this maze (suboptimally!) in under a second with a path cost of 350:
+
+<img src="./images/search_7.gif" width=800>
+
+```
+[SearchAgent] using function depthFirstSearch
+[SearchAgent] using problem type PositionSearchProblem
+Path found with cost 350.
+Pacman emerges victorious! Score: 2360
+Average Score: 2360.0
+Scores:        2360.0
+Win Rate:      1/1 (1.00)
+Record:        Win
+```
+`ClosestDotSearchAgent` won’t always find the shortest possible path through the maze.
