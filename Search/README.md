@@ -56,7 +56,7 @@ python pacman.py -l bigMaze -z .5 -p SearchAgent
 ```
 You should see the mediumMaze for **DFS** like this:
 
-<img src='./images/search_1.png' width=900>
+<img src='../images/search_1.png' width=900>
 
 ```
 [SearchAgent] using function depthFirstSearch
@@ -81,7 +81,7 @@ python pacman.py -l bigMaze -p SearchAgent -a fn=bfs -z .5
 
 You should see the mediumMaze for **BFS** like this:
 
-<img src='./images/search_2.png' width=900>
+<img src='../images/search_2.png' width=900>
 
 ```
 [SearchAgent] using function bfs
@@ -113,7 +113,7 @@ python pacman.py -l mediumScaryMaze -p StayWestSearchAgent
 
 You should see the mediumDottedMaze:
 
-<img src='./images/search_3.png'>
+<img src='../images/search_3.png'>
 
 which results in higher scores because we encourage pacman to eat more dots as part of our cost function.
 ```
@@ -130,7 +130,7 @@ Record:        Win
 
 And the mediumScaryMaze:
 
-<img src='./images/search_3_1.png'>
+<img src='../images/search_3_1.png'>
 
 ```
 Path found with total cost of 68719479864 in 0.0 seconds
@@ -153,7 +153,7 @@ We can test the A* implementation on the original problem of finding a path thro
 python pacman.py -l bigMaze -z .5 -p SearchAgent -a fn=astar,heuristic=manhattanHeuristic
 ```
 
-<img src='./images/search_4.png' width=600>
+<img src='../images/search_4.png' width=600>
 
 A* finds the optimal solution slightly faster than uniform cost search (about 549 vs. 620 search nodes expanded in our implementation, but ties in priority may make your numbers differ slightly).
 
@@ -180,7 +180,7 @@ python pacman.py -l tinyCorners -p SearchAgent -a fn=bfs,prob=CornersProblem
 python pacman.py -l mediumCorners -p SearchAgent -a fn=bfs,prob=CornersProblem
 ```
 The blue line is the first route that pacman goes, red line is the second route, orange line is the third route.
-<img src='./images/search_5.png'>
+<img src='../images/search_5.png'>
 
 ```
 [SearchAgent] using function bfs
@@ -209,7 +209,7 @@ To get a better result, I [implemented](https://github.com/JC01111/Pacman-AI-Pro
 python pacman.py -l mediumCorners -p AStarCornersAgent
 ```
 The blue line is the first route that pacman goes, red line is the second route, orange line is the third route.
-<img src='./images/search_5_2.png'>
+<img src='../images/search_5_2.png'>
 
 This method expanded less than 1200 nodes, which is very good.
 ```
@@ -246,7 +246,7 @@ I [implemented](https://github.com/JC01111/Pacman-AI-Projects/blob/e8db8244dff05
 python pacman.py -l trickySearch -p AStarFoodSearchAgent
 ```
 
-<img src="./images/search_6.gif" width=600>
+<img src="../images/search_6.gif" width=600>
 
 ```
 Path found with total cost of 60 in 6.2 seconds
@@ -268,7 +268,7 @@ I [implemented](https://github.com/JC01111/Pacman-AI-Projects/blob/f92c5f60fd07a
 python pacman.py -l bigSearch -p ClosestDotSearchAgent
 ```
 
-<img src="./images/search_7.gif" width=800>
+<img src="../images/search_7.gif" width=800>
 
 ```
 [SearchAgent] using function depthFirstSearch
