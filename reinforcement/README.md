@@ -41,6 +41,10 @@ Supporting files you can ignore:
 | `reinforcementTestClasses.py`| Project 3 specific autograding test classes.                                                   |
 
 <br>
+Useful commands: 
+`-i` indictates how many iterations to run. `-k` indicates how many times to execute.
+
+<br>
 
 ## 1. Value Iteration
 
@@ -133,3 +137,35 @@ Lower noise means more deterministic, higher noise will lead to more random move
 Negative livingReward discourages to live longer (takes shorter steps), but higher livingReward encourages live long, take longer action.
 
 ## 3. Prioritized Sweeping Value Iteration
+In this part I implemented a simplified version of the standard [prioritized sweeping algorithm](https://proceedings.neurips.cc/paper_files/paper/1992/file/55743cc0393b1cb4b8b37d09ae48d097-Paper.pdf) in [`PrioritizedSweepingValueIterationAgent`](https://github.com/JC01111/Pacman-AI-Projects/blob/90334c76d82822979825107c23367c4eb421666d/reinforcement/valueIterationAgents.py#L124) in `valueIterationAgents.py`. 
+
+Here's the algorithm of my implementation:
+- First, we define the predecessors of a state `s` as all states that have a nonzero probability of reaching `s` by taking some action `a`. Also, `theta`, which is passed in as a parameter, will represent our tolerance for error when deciding whether to update the value of a state.
+- Compute predecessors of all states.
+- Initialize an empty priority queue.
+- For each non-terminal state `s`, do:
+  - Find the absolute value of the difference between the current value of `s` in `self.values` and the highest Q-value across all possible actions from `s` (this represents what the value should be); call this number `diff`. Do NOT update `self.values[s]` in this step.
+  - Push `s` into the priority queue with priority `-diff` (note that this is negative). We use a negative because the priority queue is a min heap, but we want to prioritize updating states that have a higher error.
+- For `iteration` in `0, 1, 2, ..., self.iterations - 1`, do:
+  - If the priority queue is empty, then terminate.
+  - Pop a state `s` off the priority queue.
+  - Update the value of `s` (if it is not a terminal state) in `self.values`.
+  - For each predecessor `p` of `s`, do:
+    - Find the absolute value of the difference between the current value of `p` in `self.values` and the highest Q-value across all possible actions from `p` (this represents what the value should be); call this number `diff`. Do NOT update `self.values[p]` in this step.
+    - If `diff > theta`, push `p` into the priority queue with priority `-diff` (note that this is negative), as long as it does not already exist in the priority queue with equal or lower priority. As before, we use a negative because the priority queue is a min heap, but we want to prioritize updating states that have a higher error.
+
+We can run the `PrioritizedSweepingValueIterationAgen`` in the Gridworld using the following command:
+```python
+python gridworld.py -a priosweepvalue -i 1000
+```
+
+<img src="../images/rl_3.gif" width=400>
+
+```
+EPISODE 1 COMPLETE: RETURN WAS 0.5904900000000002
+
+
+AVERAGE RETURNS FROM START STATE: 0.5904900000000002
+```
+
+## 4. Q-Learning
