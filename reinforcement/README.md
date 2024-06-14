@@ -1,5 +1,7 @@
 # Reinforcement Learning
 
+<img src="../images/rl_7_2.gif" width=580> <br>
+
 In this project, the Pacman agent will find paths through his maze world, both to reach a particular location and to collect food efficiently. The value iteration and Q-learning of Reinforcement Learning techniques will be applied to pacman scenarios for pacman to have different routes and behaviors to collect dots and the costs.
 
 Click on the [implemented]() (example) to look at specific function.
