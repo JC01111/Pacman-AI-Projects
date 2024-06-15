@@ -1,6 +1,7 @@
 # Search Algorithms
-
-<img src="../images/search_7.gif" width=600> <br>
+<p align="center">
+    <img src="../images/search_7.gif" width=600> <br>
+</p>
 
 In this project, the Pacman agent will find paths through his maze world, both to reach a particular location and to collect food efficiently. The general search algorithms (__BFS, DFS, UCS, A*, and Heuristic__) will be applied to pacman scenarios for pacman to have different routes and behaviors to collect dots and the costs.
 

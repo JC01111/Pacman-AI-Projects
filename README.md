@@ -1,10 +1,12 @@
-# Pacman-AI-Projects
-<img src="./images/pacman_game.gif">
+# Pac-Man AI Projects
+<p align="center">
+    <img src="./images/pacman_game.gif">
+</p>
 
 ## Overview
-These are the main topics of the Pacman AI Projects. 
+These are the main topics of the Pac-Man AI Projects. 
 
-I implemented many advanced Searching, Reinforcement Learning, and Machine Learning algorithms for Pacman to plan out paths to efficiently eat all the dots and escapce from the ghosts.
+I implemented many advanced Searching, Reinforcement Learning, and Machine Learning algorithms for Pac-Man to plan out paths to efficiently eat all the dots while evading ghosts.
 
 Please click on the topics you are interested and read the **README.md** file. I've labeled the files I implemented of algorithms, and the **README.md** file will demonstrate the differences and effects for different algorithms.
 
