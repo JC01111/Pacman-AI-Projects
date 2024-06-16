@@ -3,11 +3,22 @@
     <img src="../images/search_7.gif" width=600> <br>
 </p>
 
+## Overview
 In this project, the Pacman agent will find paths through his maze world, both to reach a particular location and to collect food efficiently. The general search algorithms (__BFS, DFS, UCS, A*, and Heuristic__) will be applied to pacman scenarios for pacman to have different routes and behaviors to collect dots and the costs.
 
 Click on the [implemented]() (example) to look at specific function.
 
-<br>
+### Contents
+1. [Finding a Fixed Food Dot using Depth First Search](https://github.com/JC01111/Pacman-AI-Projects/tree/main/Search#1-finding-a-fixed-food-dot-using-depth-first-search)
+2. [Breadth First Search](https://github.com/JC01111/Pacman-AI-Projects/tree/main/Search#2-breadth-first-search)
+3. [Varying the Cost Function](https://github.com/JC01111/Pacman-AI-Projects/tree/main/Search#3-varying-the-cost-function)
+4. [A* search](https://github.com/JC01111/Pacman-AI-Projects/tree/main/Search#4-a-search)
+5. [Finding All the Corners](https://github.com/JC01111/Pacman-AI-Projects/tree/main/Search#5-finding-all-the-corners)
+6. [Corners Problem: Heuristic](https://github.com/JC01111/Pacman-AI-Projects/tree/main/Search#52-corners-problem-heuristic)
+7. [Eating All The Dots](https://github.com/JC01111/Pacman-AI-Projects/tree/main/Search#6-eating-all-the-dots)
+8. [Suboptimal Search](https://github.com/JC01111/Pacman-AI-Projects/tree/main/Search#7-suboptimal-search)
+
+___
 
 Files of main algorithms:
 
@@ -202,7 +213,7 @@ Win Rate:      1/1 (1.00)
 Record:        Win
 ```
 
-## 5.2 Corners Problem: Heuristic
+## 6. Corners Problem: Heuristic
 __Admissibility vs. Consistency:__ Heuristics are just functions that take search states and return numbers that estimate the cost to a nearest goal. More effective heuristics will return values closer to the actual goal costs. To be _admissible_, the heuristic values must be lower bounds on the actual shortest path cost to the nearest goal (and non-negative). To be _consistent_, it must additionally hold that if an action has cost c, then taking that action can only cause a drop in heuristic of at most c.
 
 Admissibility isn’t enough to guarantee correctness in graph search – you need the stronger condition of consistency. However, admissible heuristics are usually also consistent, especially if they are derived from problem relaxations. Therefore it is usually easiest to start out by brainstorming admissible heuristics. Once you have an admissible heuristic that works well, you can check whether it is indeed consistent, too. The only way to guarantee consistency is with a proof. However, inconsistency can often be detected by verifying that for each node you expand, its successor nodes are equal or higher in in f-value. Moreover, if UCS and A* ever return paths of different lengths, your heuristic is inconsistent. This stuff is tricky!
@@ -231,7 +242,7 @@ Win Rate:      1/1 (1.00)
 Record:        Win
 ```
 
-## 6. Eating All The Dots
+## 7. Eating All The Dots
 Now we’ll solve a hard search problem: eating all the Pacman food in as few steps as possible. For this, we’ll need a new search problem definition which formalizes the food-clearing problem: `FoodSearchProblem` in `searchAgents.py` (implemented). A solution is defined to be a path that collects all of the food in the Pacman world. For the present project, solutions do not take into account any ghosts or power pellets; solutions only depend on the placement of walls, regular food and Pacman. (Of course ghosts can ruin the execution of a solution!) If you have written your general search methods correctly, A* with a null heuristic (equivalent to uniform-cost search) should quickly find an optimal solution to testSearch with no code change on your part (total cost of 7).
 
 ```python
@@ -268,7 +279,7 @@ Record:        Win
 ```
 
 
-## 7. Suboptimal Search
+## 8. Suboptimal Search
 Sometimes, even with A* and a good heuristic, finding the optimal path through all the dots is hard. In these cases, we’d still like to find a reasonably good path, quickly. In this section, I wrote an agent that always greedily eats the closest dot. `ClosestDotSearchAgent` is implemented in searchAgents.py.
 
 I [implemented](https://github.com/JC01111/Pacman-AI-Projects/blob/f92c5f60fd07a0727fbb55ce9bc29fd47a8b4e7d/Search/searchAgents.py#L507) the function `findPathToClosestDot` in `searchAgents.py`. The agent solves this maze (suboptimally!) in under a second with a path cost of 350:
