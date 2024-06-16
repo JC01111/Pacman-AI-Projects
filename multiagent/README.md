@@ -1,6 +1,6 @@
 # Multi-Agent Search
 <p align="center">
-    <img src="../images/mas_bg.png" width=400 position=center> 
+    <img src="../images/mas_bg.png" width=400>
 </p>
 
 $$\text{Pacman, now with ghosts.
