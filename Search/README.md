@@ -155,7 +155,7 @@ We can test the A* implementation on the original problem of finding a path thro
 ```python
 python pacman.py -l bigMaze -z .5 -p SearchAgent -a fn=astar,heuristic=manhattanHeuristic
 ```
-
+<p align="center">
 <img src='../images/search_4.png' width=600>
 
 A* finds the optimal solution slightly faster than uniform cost search (about 549 vs. 620 search nodes expanded in our implementation, but ties in priority may make your numbers differ slightly).
@@ -183,11 +183,12 @@ python pacman.py -l tinyCorners -p SearchAgent -a fn=bfs,prob=CornersProblem
 python pacman.py -l mediumCorners -p SearchAgent -a fn=bfs,prob=CornersProblem
 ```
 The blue line is the first route that pacman goes, red line is the second route, orange line is the third route.
+
 <img src='../images/search_5.png'>
 
 The gif version:
-
-<img src='../images/search5_1.gif' width=800>
+<p align="center">
+<img src='../images/search_5_1.gif' width=800>
 
 ```
 [SearchAgent] using function bfs
@@ -216,6 +217,7 @@ To get a better result, I [implemented](https://github.com/JC01111/Pacman-AI-Pro
 python pacman.py -l mediumCorners -p AStarCornersAgent
 ```
 The blue line is the first route that pacman goes, red line is the second route, orange line is the third route.
+
 <img src='../images/search_5_2.png'>
 
 This method expanded less than 1200 nodes, which is very good.
@@ -252,7 +254,7 @@ I [implemented](https://github.com/JC01111/Pacman-AI-Projects/blob/e8db8244dff05
 ```python
 python pacman.py -l trickySearch -p AStarFoodSearchAgent
 ```
-
+<p align="center">
 <img src="../images/search_6.gif" width=600>
 
 ```
@@ -274,7 +276,7 @@ I [implemented](https://github.com/JC01111/Pacman-AI-Projects/blob/f92c5f60fd07a
 ```python
 python pacman.py -l bigSearch -p ClosestDotSearchAgent
 ```
-
+<p align="center">
 <img src="../images/search_7.gif" width=800>
 
 ```
