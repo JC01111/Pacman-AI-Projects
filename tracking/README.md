@@ -1,6 +1,6 @@
 # Bayes Nets and Hidden Markov Models
 <p align="center">
-    <img src="../images/hmm_8_3.gif" width="500">
+    <img src="../images/hmm_8_3.gif" width="600">
 </p>
 
 $$\text{I can hear you, ghost.
@@ -152,23 +152,18 @@ Use this command to visulaize the output:
 ```python
 python autograder.py -q q7
 ```
-$$\text{Test 1}$$
+$$\text{Example 1}$$
 
 <p align="center">
     <img src="../images/hmm_7_1.gif" width="200">
 </p>
 
-$$\text{Test 2}$$
-
-<p align="center">
-<img src="../images/hmm_7_2.gif" width="200">
-
-$$\text{Test 3}$$
+$$\text{Example 2}$$
 
 <p align="center">
 <img src="../images/hmm_7_3.gif" width="258">
 
-$$\text{Test 4}$$
+$$\text{Example 3}$$
 
 <p align="center">
 <img src="../images/hmm_7_4.gif" width="500">
