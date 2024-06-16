@@ -34,4 +34,7 @@ Implement __Value Function, Q learning, and Approximate Q learning__ to help pac
 Pacman uses probabilistic inference on __Bayes Nets__ and the __forward algorithm and particle sampling in a Hidden Markov Model__ to find ghosts given noisy readings of distances to them.
 
 ### [Machine Learning](machinelearning)
+
+<img src="./images/ml_3.gif" width=400>
+
 Implement the __perceptron algorithm, neural network, and recurrent nn models__, and apply the models to several tasks including digit classification and language identification.
