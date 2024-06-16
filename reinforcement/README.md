@@ -67,7 +67,7 @@ We can test the implementation by:
 python gridworld.py -a value -i 100 -k 10
 python gridworld.py -a value -i 5
 ```
-
+<p align="center">
 <img src="../images/rl_1.png" width=450>
 
 ```
@@ -78,7 +78,7 @@ AVERAGE RETURNS FROM START STATE: 0.47829690000000014
 
 ## 2. Policies
 Now we have a `DiscountGrid` layout, shown below.  This grid has two terminal states with positive payoff (in the middle row), a close exit with payoff +1 and a distant exit with payoff +10. The bottom row of the grid consists of terminal states with negative payoff (shown in red); each state in this “cliff” region has payoff -10. The starting state is the yellow square. We distinguish between two types of paths: (1) paths that “risk the cliff” and travel near the bottom row of the grid; these paths are shorter but risk earning a large negative payoff, and are represented by the red arrow in the figure below. (2) paths that “avoid the cliff” and travel along the top edge of the grid. These paths are longer but are less likely to incur huge negative payoffs. These paths are represented by the green arrow in the figure below.
-
+<p align="center">
 <img src="../images/rl_2_1.png" width=420>
 
 <br>
@@ -92,7 +92,7 @@ Now we want to choose settings of the __discount, noise, and living reward__ par
    ```python
    python gridworld.py -g DiscountGrid -a value --discount 0.4 --noise 0.01 --livingReward -0.8
    ```
-
+    <p align="center">
     <img src="../images/rl_2_2.gif" width=400>
 
 3. Prefer the close exit (+1), but avoiding the cliff (-10): <br>
@@ -102,7 +102,7 @@ Now we want to choose settings of the __discount, noise, and living reward__ par
    ```python
    python gridworld.py -g DiscountGrid -a value --discount 0.01 --noise 0.01 --livingReward 0.9
    ```
-
+    <p align="center">
     <img src="../images/rl_2_3.gif" width=400>
 
 5. Prefer the distant exit (+10), risking the cliff (-10): <br>
@@ -112,7 +112,7 @@ Now we want to choose settings of the __discount, noise, and living reward__ par
    ```python
    python gridworld.py -g DiscountGrid -a value --discount 0.8 --noise 0.01 --livingReward -0.8
    ```
-
+    <p align="center">
     <img src="../images/rl_2_4.gif" width=400>
 
 7. Prefer the distant exit (+10), avoiding the cliff (-10): <br>
@@ -122,7 +122,7 @@ Now we want to choose settings of the __discount, noise, and living reward__ par
     ```python
    python gridworld.py -g DiscountGrid -a value --discount 0.9 --noise 0.2 --livingReward 0.9
     ```
-
+    <p align="center">
    <img src="../images/rl_2_5.gif" width=400> 
 
 9. Avoid both exits and the cliff (so an episode should never terminate): <br>
@@ -132,7 +132,7 @@ Now we want to choose settings of the __discount, noise, and living reward__ par
    ```python
    python gridworld.py -g DiscountGrid -a value --discount 1 --noise 0.8 --livingReward 0.9
    ```
-
+    <p align="center">
     <img src="../images/rl_2_6.gif" width=400>
 
 The lower discount means short-sighted, higher discount focuses more on future (go further).
@@ -161,7 +161,7 @@ We can run the `PrioritizedSweepingValueIterationAgen`` in the Gridworld using t
 ```python
 python gridworld.py -a priosweepvalue -i 1000
 ```
-
+<p align="center">
 <img src="../images/rl_3.gif" width=400>
 
 ```
@@ -180,7 +180,7 @@ With the Q-learning update in place, we can watch the Q-learner learn under manu
 ```python
 python gridworld.py -a q -k 5 -m
 ```
-
+<p align="center">
 <img src="../images/rl_4.png" width=400>
 
 ```
@@ -196,14 +196,14 @@ After implementing the `getAction` method, observe the following behavior of the
 ```python
 python gridworld.py -a q -k 100 --noise 0.0 -e 0.1
 ```
-
+<p align="center">
 <img src="../images/rl_5_1.gif" width=400>
 
 
 ```python
 python gridworld.py -a q -k 100 --noise 0.0 -e 0.9
 ```
-
+<p align="center">
 <img src="../images/rl_5_2.gif" width=400> <br>
 
 We can observe that smaller epsilon value encourages exploit than explore. The higher epsilon value makes the agent more greedy, so we are continuely improving the scores for each small grids, which makes sense for the above different behaviors.
@@ -215,7 +215,7 @@ Now, back to the bridge crossing problem. We can modify `-e` and `-l` to observe
 ```python
 python gridworld.py -a q -k 50 -n 0 -g BridgeGrid -e 0.8 -l 0.7
 ```
-
+<p align="center">
 <img src="../images/rl_5_3.gif" width=700>
 
 ## 6. Q-Learning and Pacman
@@ -225,7 +225,7 @@ Time to play some Pacman! Pacman will play games in two phases. In the first pha
 ```python
 python pacman.py -p PacmanQAgent -x 2000 -n 2005 -l smallGrid
 ```
-
+<p align="center">
 <img src="../images/rl_6_1.gif" width=300> <br>
 
 `PacmanQAgent` is defined in terms of the `QLearningAgent`. `PacmanQAgent` is only different in that it has default learning parameters that are more effective for the Pacman problem (`epsilon=0.05, alpha=0.2, gamma=0.8`). 
@@ -236,7 +236,7 @@ Use this command to watch 5 training games:
 ```python
 python pacman.py -p PacmanQAgent -n 5 -l smallGrid -a numTraining=5
 ```
-
+<p align="center">
 <img src="../images/rl_6_2.gif" width=300> <br>
 
 During training, you will see output every 100 games with statistics about how Pacman is faring. Epsilon is positive during training, so Pacman will play poorly even after having learned a good policy: this is because he occasionally makes a random exploratory move into a ghost. As a benchmark, it should take between 1000 and 1400 games before Pacman’s rewards for a 100 episode segment becomes positive, reflecting that he’s started winning more than losing. By the end of training, it should remain positive and be fairly high (between 100 and 350).
@@ -283,7 +283,7 @@ Even much larger layouts should be no problem for your ApproximateQAgent (warnin
 ```bash
 python pacman.py -p ApproximateQAgent -a extractor=SimpleExtractor -x 50 -n 60 -l mediumClassic
 ```
-
+<p align="center">
 <img src="../images/rl_7_2.gif" width=600> <br>
 
 Now, the approximate Q-learning agent can win almost every time with these simple features, even with only 50 training games.
