@@ -6,7 +6,13 @@
 ## Overview
 In this project, I built a neural network to classify digits, and language identification.
 
-<br>
+### Contents
+1. [Perceptron](https://github.com/JC01111/Pacman-AI-Projects/tree/main/machinelearning#1-perceptron)
+2. [Non-linear Regression](https://github.com/JC01111/Pacman-AI-Projects/tree/main/machinelearning#2-non-linear-regression)
+3. [Digit Classification](https://github.com/JC01111/Pacman-AI-Projects/tree/main/machinelearning#3-digit-classification)
+4. [Language Identification](https://github.com/JC01111/Pacman-AI-Projects/tree/main/machinelearning#4-language-identification)
+
+___
 
 Files of main algorithms:
 

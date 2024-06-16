@@ -3,11 +3,21 @@
     <img src="../images/rl_7_2.gif" width=580> <br>
 </p>
 
+## Overview
 In this project, the Pacman agent will find paths through his maze world, both to reach a particular location and to collect food efficiently. The value iteration and Q-learning of Reinforcement Learning techniques will be applied to pacman scenarios for pacman to have different routes and behaviors to collect dots and the costs.
 
 Click on the [implemented]() (example) to look at specific function.
 
-<br>
+### Contents
+1. [Value Iteration](https://github.com/JC01111/Pacman-AI-Projects/tree/main/reinforcement#1-value-iteration)
+2. [Policies](https://github.com/JC01111/Pacman-AI-Projects/tree/main/reinforcement#2-policies)
+3. [Prioritized Sweeping Value Iteration](https://github.com/JC01111/Pacman-AI-Projects/tree/main/reinforcement#3-prioritized-sweeping-value-iteration)
+4. [Q-Learning](https://github.com/JC01111/Pacman-AI-Projects/tree/main/reinforcement#4-q-learning)
+5. [Epsilon and Learning Rate](https://github.com/JC01111/Pacman-AI-Projects/tree/main/reinforcement#5-epsilon-and-learning-rate)
+6. [Q-Learning and Pacman](https://github.com/JC01111/Pacman-AI-Projects/tree/main/reinforcement#6-q-learning-and-pacman)
+7. [Approximate Q-Learning](https://github.com/JC01111/Pacman-AI-Projects/tree/main/reinforcement#7-approximate-q-learning)
+
+___
 
 Files of main algorithms:
 

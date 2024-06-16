@@ -14,7 +14,7 @@ Please click on the topics you are interested and read the **README.md** file. I
 
 ### [Search](Search)
 
-<img src="./images/search_7.gif" width=300>
+<img src="./images/search_7.gif" width=330>
 
 Implement __depth-first, breadth-first, uniform cost, and A*__ search algorithms. These algorithms are used to solve navigation and traveling salesman problems in the Pacman world.
 ### [Multi-Agent Search](multiagent)

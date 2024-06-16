@@ -14,9 +14,9 @@ Click on the [implemented]() (example) to look at specific function.
 3. [Varying the Cost Function](https://github.com/JC01111/Pacman-AI-Projects/tree/main/Search#3-varying-the-cost-function)
 4. [A* search](https://github.com/JC01111/Pacman-AI-Projects/tree/main/Search#4-a-search)
 5. [Finding All the Corners](https://github.com/JC01111/Pacman-AI-Projects/tree/main/Search#5-finding-all-the-corners)
-6. [Corners Problem: Heuristic](https://github.com/JC01111/Pacman-AI-Projects/tree/main/Search#52-corners-problem-heuristic)
-7. [Eating All The Dots](https://github.com/JC01111/Pacman-AI-Projects/tree/main/Search#6-eating-all-the-dots)
-8. [Suboptimal Search](https://github.com/JC01111/Pacman-AI-Projects/tree/main/Search#7-suboptimal-search)
+6. [Corners Problem: Heuristic](https://github.com/JC01111/Pacman-AI-Projects/tree/main/Search#6-corners-problem-heuristic)
+7. [Eating All The Dots](https://github.com/JC01111/Pacman-AI-Projects/tree/main/Search#7-eating-all-the-dots)
+8. [Suboptimal Search](https://github.com/JC01111/Pacman-AI-Projects/tree/main/Search#8-suboptimal-search)
 
 ___
 

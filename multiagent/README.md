@@ -11,7 +11,14 @@ Evaluation}$$
 
 In this project, I designed agents for the classic version of Pacman, including ghosts. Along the way, I implemented both **minimax** and **expectimax** search and try my hands at evaluation function design.
 
-<br>
+### Contents
+1. [Reflex Agent](https://github.com/JC01111/Pacman-AI-Projects/tree/main/multiagent#1-reflex-agent)
+2. [Minimax](https://github.com/JC01111/Pacman-AI-Projects/tree/main/multiagent#2-minimax)
+3. [Alpha-Beta Pruning](https://github.com/JC01111/Pacman-AI-Projects/tree/main/multiagent#3-alpha-beta-pruning)
+4. [Expectimax](https://github.com/JC01111/Pacman-AI-Projects/tree/main/multiagent#4-expectimax)
+5. [Evaluation Function](https://github.com/JC01111/Pacman-AI-Projects/tree/main/multiagent#5-evaluation-function)
+
+___
 
 File of main algorithms:
 

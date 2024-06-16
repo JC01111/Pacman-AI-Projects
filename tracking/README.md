@@ -12,7 +12,21 @@ In this project, I designed Pacman agents that use sensors to locate and eat inv
 
 Click on [implemented]() (example) to look at specific function.
 
-<br>
+### Contents
+1. [Bayes Net Structure](https://github.com/JC01111/Pacman-AI-Projects/tree/main/tracking#1-bayes-net-structure)
+2. [Join Factors](https://github.com/JC01111/Pacman-AI-Projects/tree/main/tracking#2-join-factors)
+3. [Eliminate](https://github.com/JC01111/Pacman-AI-Projects/tree/main/tracking#3-eliminate)
+4. [Variable Elimination](https://github.com/JC01111/Pacman-AI-Projects/tree/main/tracking#4-variable-elimination)
+5. [Discrete Distribution Class](https://github.com/JC01111/Pacman-AI-Projects/tree/main/tracking#5-discretedistribution-class)
+6. [Observation Probability](https://github.com/JC01111/Pacman-AI-Projects/tree/main/tracking#6-observation-probability)
+7. [Exact Inference Observation](https://github.com/JC01111/Pacman-AI-Projects/tree/main/tracking#7-exact-inference-observation)
+8. [Exact Inference with Time Elapse](https://github.com/JC01111/Pacman-AI-Projects/tree/main/tracking#8-exact-inference-with-time-elapse)
+9. [Exact Inference Full Test](https://github.com/JC01111/Pacman-AI-Projects/tree/main/tracking#9-exact-inference-full-test)
+10. [Approximate Inference Initialization and Beliefs](https://github.com/JC01111/Pacman-AI-Projects/tree/main/tracking#10-approximate-inference-initialization-and-beliefs)
+11. [Approximate Inference Observation](https://github.com/JC01111/Pacman-AI-Projects/tree/main/tracking#11-approximate-inference-observation)
+12. [Approximamte Inference with Time Elapse](https://github.com/JC01111/Pacman-AI-Projects/tree/main/tracking#12-approximate-inference-with-time-elapse)
+
+___
 
 Files of main algorithms:
 
@@ -88,7 +102,7 @@ Here are some examples that `eliminate` can be used to marginalize variables fro
 ## 4. Variable Elimination
 I implemented the [`inferenceByVariableElimination`](https://github.com/JC01111/Pacman-AI-Projects/blob/b5cdff8dd5e6af5198bf26f49c6866b78e56574a/tracking/inference.py#L157) function in `inference.py`. It answers a probabilistic query, which is represented using a `BayesNet`, a list of query variables, and the evidence.
 
-## 5.1 DiscreteDistribution Class
+## 5. DiscreteDistribution Class
 Unfortunately, having timesteps will grow our graph far too much for variable elimination to be viable. Instead, we will use the Forward Algorithm for HMM’s for exact inference, and Particle Filtering for even faster but approximate inference. 
 
 In this project, we use `DiscreteDistribution` class defined in `inference.py` to model belief distributions and weight distributions. This class is an extension of the built-in Python dictionary class, where the keys are the different discrete elements of our distribution, and the corresponding values are proportional to the belief or weight that the distribution assigns that element. 
@@ -97,12 +111,12 @@ First, I implemented the [`normalize`](https://github.com/JC01111/Pacman-AI-Proj
 
 Second, I implemented the [`sample`](https://github.com/JC01111/Pacman-AI-Projects/blob/b5cdff8dd5e6af5198bf26f49c6866b78e56574a/tracking/inference.py#L377) method, which draws a sample from the distribution, where the probability that a key is sampled is proportional to its corresponding value. Assume that the distribution is not empty, and not all of the values are zero. Note that the distribution does not necessarily have to be normalized prior to calling this method.
 
-## 5.2 Observation Probability
+## 6. Observation Probability
 In this section, I implemented the [`getObservationProb`](https://github.com/JC01111/Pacman-AI-Projects/blob/b5cdff8dd5e6af5198bf26f49c6866b78e56574a/tracking/inference.py#L474) method in the `InferenceModule` base class in `inference.py`. This method takes in an observation (which is a noisy reading of the distance to the ghost), Pacman’s position, the ghost’s position, and the position of the ghost’s jail, and returns the probability of the noisy distance reading given Pacman’s position and the ghost’s position. In other words, we want to return $P(noisyDistance \mid pacmanPosition, ghostPosition)$.
 
 The distance sensor has a probability distribution over distance readings given the true distance from Pacman to the ghost. This distribution is modeled by the function `busters.getObservationProbability(noisyDistance, trueDistance)`, which returns $P(noisyDistance \mid trueDistance)$.
 
-## 6. Exact Inference Observation
+## 7. Exact Inference Observation
 In this part, I implemented the [`observeUpdate`](https://github.com/JC01111/Pacman-AI-Projects/blob/b5cdff8dd5e6af5198bf26f49c6866b78e56574a/tracking/inference.py#L585) method in `ExactInference` class of `inference.py` to correctly update the agent’s belief distribution over ghost positions given an observation from Pacman’s sensors. It performed online belief update for observing new evidence. The `observeUpdate` method should, for this part, update the belief at every position on the map after receiving a sensor reading.
 
 Use this command to visulaize the output:
@@ -132,7 +146,7 @@ $$\text{Test 4}$$
 
 <br>
 
-## 7. Exact Inference with Time Elapse
+## 8. Exact Inference with Time Elapse
 In the previous part I implemented belief updates for Pacman based on his observations. Fortunately, Pacman’s observations are not his only source of knowledge about where a ghost may be. Pacman also has knowledge about the ways that a ghost may move; namely that the ghost can not move through a wall or more than one space in one time step.
 
 To understand why this is useful to Pacman, consider the following scenario in which there is Pacman and one Ghost. Pacman receives many observations which indicate the ghost is very near, but then one which indicates the ghost is very far. The reading indicating the ghost is very far is likely to be the result of a buggy sensor. Pacman’s prior knowledge of how the ghost may move will decrease the impact of this reading since Pacman knows the ghost could not move so far in only one move.
@@ -172,7 +186,7 @@ $$\text{Example 3}$$
 
 Remember that lighter squares indicate that pacman believes a ghost is more likely to occupy that location, and darker squares indicate a ghost is less likely to occupy that location. We notice that as the ghost visits some squares more than other squares, those squares get lighter and the other squares get darker.
 
-## 8. Exact Inference Full Test
+## 9. Exact Inference Full Test
 Now that Pacman knows how to use both his prior knowledge and his observations when figuring out where a ghost is, he is ready to hunt down ghosts on his own. We will use `observeUpdate` and `elapseTime` implementations together to keep an updated belief distribution, and the simple greedy agent will choose an action based on the latest ditsibutions at each time step. In the simple greedy strategy, Pacman assumes that each ghost is in its most likely position according to his beliefs, then moves toward the closest ghost. Up to this point, Pacman has moved by randomly selecting a valid action.
 
 I implemented the [`chooseAction`](https://github.com/JC01111/Pacman-AI-Projects/blob/b5cdff8dd5e6af5198bf26f49c6866b78e56574a/tracking/bustersAgents.py#L139) method in `GreedyBustersAgent` in `bustersAgents.py`. The agent will first find the most likely position of each remaining uncaptured ghost, then choose an action that minimizes the maze distance to the closest ghost.
@@ -205,12 +219,12 @@ $$\text{Test 3}$$
 
 <br>
 
-## 9. Approximate Inference Initialization and Beliefs
+## 10. Approximate Inference Initialization and Beliefs
 For the next few parts, I implemented a particle filtering algorithm for tracking a single ghost.
 
 First, I implemented the functions [`initializeUniformly`](https://github.com/JC01111/Pacman-AI-Projects/blob/b5cdff8dd5e6af5198bf26f49c6866b78e56574a/tracking/inference.py#L660) and [`getBeliefDistribution`](https://github.com/JC01111/Pacman-AI-Projects/blob/b5cdff8dd5e6af5198bf26f49c6866b78e56574a/tracking/inference.py#L678) in the `ParticleFilter` class in `inference.py`. A particle (sample) is a ghost position in this inference problem. For initialization, particles are evenly (not randomly) distributed across legal positions in order to ensure a uniform prior.
 
-## 10. Approximate Inference Observation
+## 11. Approximate Inference Observation
 Next, I implemented the [`observeUpdate`](https://github.com/JC01111/Pacman-AI-Projects/blob/b5cdff8dd5e6af5198bf26f49c6866b78e56574a/tracking/inference.py#L699) method in the `ParticleFilter` class in `inference.py`. This method constructs a weight distribution over `self.particles` where the weight of a particle is the probability of the observation given Pacman’s position and that particle location. Then, we resample from this weighted distribution to construct our new list of particles. My implementation handles a special case that when all particles receive zero weight, the list of particles would be reinitialized by calling `initializeUniformly`.
 
 _Observation Update_ - During the observation update for particle filtering, we use the sensor model $P(F_i\mid T_i)$ to weight each particle according to the probability dictated by the observed evidence and the particle’s state. Specifically, for a particle in state $t_i$ with sensor reading $f_i$, assign a weight of $P(f_i\mid t_i)$. The algorithm for the observation update is as follows:
@@ -228,7 +242,7 @@ python autograder.py -q q10
 <p align="center">
 <img src="../images/hmm_9.gif" width=320>
 
-# 11. Approximate Inference with Time Elapse
+## 12. Approximate Inference with Time Elapse
 In this part, I implemented the [`elapseTime`](https://github.com/JC01111/Pacman-AI-Projects/blob/b5cdff8dd5e6af5198bf26f49c6866b78e56574a/tracking/inference.py#L738) function in the `ParticleFilter` class in `inference.py`. This function constructs a new list of particles that corresponds to each existing particle in `self.particles` advancing a time step, and then assign this new list back to `self.particles`. This function tracks ghosts nearly as effectively as with exact inference.
 
 _Time Elapse Update_ - Update the value of each particle according to the transition model. For a particle in state $t_i$, sample the updated value from the probability distribution given by $P(T_{i+1} \mid t_i)$. Note the similarity of the time elapse update to prior sampling with Bayes’ nets, since the frequency of particles in any given state reflects the transition probabilities.
