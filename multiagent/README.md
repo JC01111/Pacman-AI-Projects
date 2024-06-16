@@ -112,7 +112,7 @@ The pseudo-code of the algorithm:
 ```python
 python pacman.py -p AlphaBetaAgent -a depth=3 -l smallClassic
 ```
-
+<p align="center">
 <img src="../images/mas_3_2.gif" width=550>
 
 We can see above the behavior is correct even though Pacman will lose the games.
@@ -124,7 +124,7 @@ We can test the implementation on game trees by:
 ```python
 python autograder.py -q q4
 ```
-
+<p align="center">
 <img src="../images/mas_4_1.gif" width=550> <br>
 
 Now, we can observe the expectimax in Pacman. Random ghosts are of course not optimal minimax agents, and so modeling them with minimax search may not be appropriate. `ExpectimaxAgent` will no longer take the min over all ghost actions, but the expectation according to your agent’s model of how the ghosts act. 
@@ -190,7 +190,7 @@ Here I will show you one game that the Pacman using this `betterEvaluatonFucntio
 ```python
 python autograder.py -q q5
 ```
-
+<p align="center">
 <img src="../images/mas_5_1.gif" width=550> <br>
 
 Finally, run this without graphics to check to run the agent on the smallClassic layout 10 times.

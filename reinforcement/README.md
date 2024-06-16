@@ -276,7 +276,7 @@ Now, we can test the approximate Q-learning agent with custom feature extractor,
 ```bash
 python pacman.py -p ApproximateQAgent -a extractor=SimpleExtractor -x 50 -n 55 -l mediumGrid
 ```
-
+<p align="center">
 <img src="../images/rl_7_1.gif" width=300> <br>
 
 Even much larger layouts should be no problem for your ApproximateQAgent (warning: this may take longer to train):

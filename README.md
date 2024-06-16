@@ -19,7 +19,7 @@ Please click on the topics you are interested and read the **README.md** file. I
 Implement __depth-first, breadth-first, uniform cost, and A*__ search algorithms. These algorithms are used to solve navigation and traveling salesman problems in the Pacman world.
 ### [Multi-Agent Search](multiagent)
 
-<img src="./images/mas_bg.png" width=300>
+<img src="./images/mas_4_1.gif" width=320>
 
 Classic Pacman is modeled as both an adversarial and a stochastic search problem. Implement multiagent __minimax and expectimax__ algorithms, as well as designing evaluation functions.
 ### [Reinforcement Learning](reinforcement)
