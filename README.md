@@ -17,21 +17,32 @@ Please click on the topics you are interested and read the **README.md** file. I
 <img src="./images/search_7.gif" width=330>
 
 Implement __depth-first, breadth-first, uniform cost, and A*__ search algorithms. These algorithms are used to solve navigation and traveling salesman problems in the Pacman world.
+
+___
+
 ### [Multi-Agent Search](multiagent)
 
 <img src="./images/mas_4_1.gif" width=320>
 
 Classic Pacman is modeled as both an adversarial and a stochastic search problem. Implement multiagent __minimax and expectimax__ algorithms, as well as designing evaluation functions.
+
+___
+
 ### [Reinforcement Learning](reinforcement)
 
 <img src="./images/rl_7_2.gif" width=300>
 
 Implement __Value Function, Q learning, and Approximate Q learning__ to help pacman and crawler agents learn rational policies.
+
+___
+
 ### [Bayes Nets and Hidden Markov Model](tracking)
 
 <img src="./images/hmm_8_3.gif" width="320">
 
 Pacman uses probabilistic inference on __Bayes Nets__ and the __forward algorithm and particle sampling in a Hidden Markov Model__ to find ghosts given noisy readings of distances to them.
+
+___
 
 ### [Machine Learning](machinelearning)
 
